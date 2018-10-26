@@ -14,6 +14,7 @@ docker build -t ey . \
 docker run -it --rm  \
   -u `id -u` \
   -v "$HOME/.ey:/home/`id -un`/.ey" \
+  -v "$HOME/.ssh/known_hosts:/home/`id -un`/.ssh/known_hosts" \
   -v "`pwd`:/home/`id -un`/wd" \
   -v "$SSH_AUTH_SOCK:/ssh-agent" \
   --workdir "/home/`id -un`/wd" ey
